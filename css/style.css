@@ -232,19 +232,6 @@ body {
   box-shadow: 0 4px 15px rgb(0 0 0 / 5%);
 }
 
-/* Promotional badge */
-.diwali-badge {
-  position: absolute;
-  right: 20px;
-  bottom: 30px;
-  display: flex;
-  width: 120px;
-  height: 120px;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--bg-maroon);
-}
-
 /* Product slider */
 .slider-wrapper {
   position: relative;
