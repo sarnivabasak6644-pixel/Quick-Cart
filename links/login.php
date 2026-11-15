@@ -12,20 +12,12 @@ include __DIR__ . '/../database/config.php';
 
     <title>Sign in | Quick Cart</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playball&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playball&display=swap"
+        rel="stylesheet" />
 
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>css/login.css" />
@@ -37,11 +29,7 @@ include __DIR__ . '/../database/config.php';
 
         <section class="login-welcome" aria-labelledby="welcome-title">
 
-            <a
-                class="login-brand"
-                href="<?= BASE_URL ?>index.php"
-                aria-label="Quick Cart home"
-            >
+            <a class="login-brand" href="<?= BASE_URL ?>index.php" aria-label="Quick Cart home">
                 <span class="login-brand-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </span>
@@ -87,11 +75,7 @@ include __DIR__ . '/../database/config.php';
                     <p>Enter your details below to continue.</p>
                 </div>
 
-                <form
-                    class="login-form"
-                    action="<?= BASE_URL ?>actions/login-process.php"
-                    method="post"
-                >
+                <form class="login-form" action="<?= BASE_URL ?>actions/login-process.php" method="post">
 
                     <!-- Email -->
                     <div class="form-field">
@@ -100,14 +84,8 @@ include __DIR__ . '/../database/config.php';
                         <div class="input-wrap">
                             <i class="fa-regular fa-envelope" aria-hidden="true"></i>
 
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                placeholder="you@example.com"
-                                autocomplete="email"
-                                required
-                            />
+                            <input id="email" name="email" type="email" placeholder="you@example.com"
+                                autocomplete="email" required />
                         </div>
                     </div>
 
@@ -122,32 +100,15 @@ include __DIR__ . '/../database/config.php';
                         <div class="input-wrap">
                             <i class="fa-solid fa-lock" aria-hidden="true"></i>
 
-                            <input
-                                id="password"
-                                name="password"
-                                type="password"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            />
-
-                            <button
-                                type="button"
-                                id="togglePassword"
-                            >
-                                Show
-                            </button>
+                            <input id="password" name="password" type="password" placeholder="Enter your password"
+                                autocomplete="current-password" required />
                         </div>
 
                     </div>
 
                     <!-- Remember me -->
                     <label class="remember-me" for="remember">
-                        <input
-                            id="remember"
-                            name="remember"
-                            type="checkbox"
-                        />
+                        <input id="remember" name="remember" type="checkbox" />
 
                         <span>Keep me signed in</span>
                     </label>
