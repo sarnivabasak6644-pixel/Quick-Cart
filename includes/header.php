@@ -106,14 +106,6 @@ include __DIR__ . '/../database/config.php';
                   favourites <i class="fa-solid fa-heart text-maroon"></i>
                 </a>
               </div>
-
-              <!-- Keep Shopping Area -->
-              <h5 class="fw-bold mb-2 ms-2">keep shopping</h5>
-              <div class="keep-shopping-box p-3 rounded-4 d-flex justify-content-between gap-2">
-                <div class="shopping-item-card rounded-3"></div>
-                <div class="shopping-item-card rounded-3"></div>
-                <div class="shopping-item-card rounded-3"></div>
-              </div>
             </div>
           </li>
           <li class="nav-item">

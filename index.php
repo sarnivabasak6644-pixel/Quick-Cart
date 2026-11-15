@@ -47,28 +47,40 @@ include __DIR__ . '/includes/header.php';
           <div class="slider-wrapper w-100">
             <div class="image-slider" id="productSlider">
               <div class="slide-item">
-                <img src="assets/images/beauty%20products.png" alt="Beauty products" />
-                <span class="d-block small mt-1">Beauty products</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                  <img src="assets/images/beauty%20products.png" alt="Beauty products" />
+                  <span class="d-block small mt-1">Beauty products</span>
+                </a>
               </div>
               <div class="slide-item">
-                <img src="assets/images/modern_bags.png" alt="Women's bags" />
-                <span class="d-block small mt-1">Women's bags</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                  <img src="assets/images/modern_bags.png" alt="Women's bags" />
+                  <span class="d-block small mt-1">Women's bags</span>
+                </a>
               </div>
               <div class="slide-item">
-                <img src="assets/images/cookies.png" alt="Cookies and snacks" />
-                <span class="d-block small mt-1">Snacks</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                   <img src="assets/images/cookies.png" alt="Cookies and snacks" />
+                   <span class="d-block small mt-1">Snacks</span>
+                </a>
               </div>
               <div class="slide-item">
-                <img src="assets\images\phone.jpeg" alt="Mobile phones" />
-                <span class="d-block small mt-1">Mobile phones</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                     <img src="assets\images\phone.jpeg" alt="Mobile phones" />
+                     <span class="d-block small mt-1">Mobile phones</span>
+                </a>
               </div>
               <div class="slide-item">
-                <img src="assets\images\laptop.jpeg" alt="Laptops" />
-                <span class="d-block small mt-1">Laptops</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                  <img src="assets\images\laptop.jpeg" alt="Laptops" />
+                  <span class="d-block small mt-1">Laptops</span>
+                </a>
               </div>
               <div class="slide-item">
-                <img src="assets/images/soft%20toys3.png" alt="Soft toys" />
-                <span class="d-block small mt-1">Toys</span>
+                <a href="<?= BASE_URL ?>links/plp.php?category=womenswear" class="text-decoration-none w-100" style="color: black;">
+                  <img src="assets/images/soft%20toys3.png" alt="Soft toys" />
+                  <span class="d-block small mt-1">Toys</span>
+                </a> 
               </div>
             </div>
           </div>
