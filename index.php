@@ -114,8 +114,10 @@ include __DIR__ . '/includes/header.php';
         <div class="col-6 col-md-3">
           <div class="blank-card shadow-sm">
             <h3 class="h2 fw-bold text-center mb-2">Womenswear</h3>
-            <img class="recommended-product-image img-fluid shadow-sm" src="assets/images/dress_w_black.png"
-              alt="Black patterned dress" />
+            <a href="links/plp.php" class="w-100">
+              <img class="recommended-product-image img-fluid w-100 shadow-sm" src="assets/images/dress_w_black.png"
+                alt="Black patterned dress" />
+            </a>
           </div>
         </div>
         <div class="col-6 col-md-3">

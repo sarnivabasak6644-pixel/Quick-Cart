@@ -120,7 +120,7 @@ include __DIR__ . '/../database/config.php';
             <a class="nav-link text-white nav-pill" href="#">community</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white nav-pill" href="links\login.php">login</a>
+            <a class="nav-link text-white nav-pill" href="<?= BASE_URL ?>links\login.php">login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white nav-pill" href="#">support</a>
