@@ -73,7 +73,7 @@ include __DIR__ . '/../database/config.php';
                     <p>Fill in your details to get started.</p>
                 </div>
 
-                <form class="login-form" action="#" method="post">
+                <form class="login-form" action="<?= BASE_URL ?>actions/signup-process.php" method="post">
 
                     <!-- Full name -->
                     <div class="form-field">
@@ -121,10 +121,11 @@ include __DIR__ . '/../database/config.php';
                                 id="mobile"
                                 name="mobile"
                                 type="tel"
-                                placeholder="+91 9876543210"
+                                placeholder="9876543210"
                                 autocomplete="tel"
-                                inputmode="tel"
-                                maxlength="16" />
+                                inputmode="numeric"
+                                maxlength="10"
+                                pattern="[6-9][0-9]{9}" />
                         </div>
                     </div>
 
@@ -170,6 +171,7 @@ include __DIR__ . '/../database/config.php';
                             id="terms"
                             name="terms"
                             type="checkbox"
+                            value="accepted"
                             required />
 
                         <span>I agree to the terms and privacy policy</span>
