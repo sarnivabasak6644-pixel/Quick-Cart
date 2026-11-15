@@ -10,7 +10,7 @@ include __DIR__ . '/../database/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#681920" />
 
-    <title>Create an account | Quick Cart</title>
+    <title>Sign in | Quick Cart</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -50,15 +50,15 @@ include __DIR__ . '/../database/config.php';
             </a>
 
             <div class="welcome-copy">
-                <p class="welcome-eyebrow">Welcome to the neighborhood</p>
+                <p class="welcome-eyebrow">A little joy in every order</p>
 
                 <h1 id="welcome-title">
-                    Make room for<br />your next favorite.
+                    Good things<br />are just a sign in away.
                 </h1>
 
                 <p class="welcome-description">
-                    Create an account to save your favorites and make checkout a little
-                    easier next time.
+                    Find your favorites, discover something new, and pick up right where
+                    you left off.
                 </p>
             </div>
 
@@ -72,7 +72,7 @@ include __DIR__ . '/../database/config.php';
 
         </section>
 
-        <section class="login-content" aria-labelledby="signup-title">
+        <section class="login-content" aria-labelledby="login-title">
 
             <a class="back-home" href="<?= BASE_URL ?>index.php">
                 <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
@@ -82,35 +82,16 @@ include __DIR__ . '/../database/config.php';
             <div class="login-card">
 
                 <div class="login-heading">
-                    <p class="login-script">Join Quick Cart</p>
-                    <h2 id="signup-title">Create your account</h2>
-                    <p>Fill in your details to get started.</p>
+                    <p class="login-script">Welcome back</p>
+                    <h2 id="login-title">Sign in to your account</h2>
+                    <p>Enter your details below to continue.</p>
                 </div>
 
                 <form
                     class="login-form"
-                    action="<?= BASE_URL ?>actions/signup-process.php"
+                    action="<?= BASE_URL ?>actions/login-process.php"
                     method="post"
                 >
-
-                    <!-- Full name -->
-                    <div class="form-field">
-                        <label for="full-name">Full name</label>
-
-                        <div class="input-wrap">
-                            <i class="fa-regular fa-user" aria-hidden="true"></i>
-
-                            <input
-                                id="full-name"
-                                name="name"
-                                type="text"
-                                placeholder="Your name"
-                                autocomplete="name"
-                                maxlength="100"
-                                required
-                            />
-                        </div>
-                    </div>
 
                     <!-- Email -->
                     <div class="form-field">
@@ -130,29 +111,13 @@ include __DIR__ . '/../database/config.php';
                         </div>
                     </div>
 
-                    <!-- Mobile number -->
-                    <div class="form-field">
-                        <label for="mobile">Mobile number (Optional)</label>
-
-                        <div class="input-wrap">
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-
-                            <input
-                                id="mobile"
-                                name="mobile"
-                                type="tel"
-                                placeholder="9876543210"
-                                autocomplete="tel"
-                                inputmode="numeric"
-                                maxlength="10"
-                                pattern="[6-9][0-9]{9}"
-                            />
-                        </div>
-                    </div>
-
                     <!-- Password -->
                     <div class="form-field">
-                        <label for="password">Password</label>
+
+                        <div class="password-label-row">
+                            <label for="password">Password</label>
+                            <a href="#forgot-password">Forgot password?</a>
+                        </div>
 
                         <div class="input-wrap">
                             <i class="fa-solid fa-lock" aria-hidden="true"></i>
@@ -161,9 +126,8 @@ include __DIR__ . '/../database/config.php';
                                 id="password"
                                 name="password"
                                 type="password"
-                                placeholder="At least 8 characters"
-                                autocomplete="new-password"
-                                minlength="8"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
                                 required
                             />
 
@@ -174,63 +138,37 @@ include __DIR__ . '/../database/config.php';
                                 Show
                             </button>
                         </div>
+
                     </div>
 
-                    <!-- Confirm password -->
-                    <div class="form-field">
-                        <label for="confirm-password">Confirm password</label>
-
-                        <div class="input-wrap">
-                            <i class="fa-solid fa-lock" aria-hidden="true"></i>
-
-                            <input
-                                id="confirm-password"
-                                name="confirm-password"
-                                type="password"
-                                placeholder="Enter your password again"
-                                autocomplete="new-password"
-                                minlength="8"
-                                required
-                            />
-
-                            <button
-                                type="button"
-                                id="toggleConfirmPassword"
-                            >
-                                Show
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Terms -->
-                    <label class="remember-me" for="terms">
+                    <!-- Remember me -->
+                    <label class="remember-me" for="remember">
                         <input
-                            id="terms"
-                            name="terms"
+                            id="remember"
+                            name="remember"
                             type="checkbox"
-                            value="accepted"
-                            required
                         />
 
-                        <span>I agree to the terms and privacy policy</span>
+                        <span>Keep me signed in</span>
                     </label>
 
+                    <!-- Submit -->
                     <button class="login-submit" type="submit">
-                        Create account
+                        Sign in
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </button>
 
                 </form>
 
                 <p class="signup-prompt">
-                    Already have an account?
-                    <a href="<?= BASE_URL ?>links/login.php">Sign in</a>
+                    New to Quick Cart?
+                    <a href="<?= BASE_URL ?>links/signup.php">Create an account</a>
                 </p>
 
             </div>
 
             <p class="login-legal">
-                Your details stay yours. We use them to support your account.
+                By continuing, you agree to our terms and privacy policy.
             </p>
 
         </section>
@@ -241,9 +179,6 @@ include __DIR__ . '/../database/config.php';
         const password = document.getElementById('password');
         const togglePassword = document.getElementById('togglePassword');
 
-        const confirmPassword = document.getElementById('confirm-password');
-        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-
         togglePassword.addEventListener('click', function () {
             if (password.type === 'password') {
                 password.type = 'text';
@@ -251,16 +186,6 @@ include __DIR__ . '/../database/config.php';
             } else {
                 password.type = 'password';
                 togglePassword.textContent = 'Show';
-            }
-        });
-
-        toggleConfirmPassword.addEventListener('click', function () {
-            if (confirmPassword.type === 'password') {
-                confirmPassword.type = 'text';
-                toggleConfirmPassword.textContent = 'Hide';
-            } else {
-                confirmPassword.type = 'password';
-                toggleConfirmPassword.textContent = 'Show';
             }
         });
     </script>
