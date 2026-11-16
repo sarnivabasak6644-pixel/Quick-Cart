@@ -10,4 +10,6 @@ if (!$conn) {
     echo "Error: " . mysqli_connect_error();
 }
 
-define('BASE_URL', 'http://localhost/Quick-Cart/');
+if (!defined('BASE_URL')) {
+    define('BASE_URL', 'http://localhost/Quick-Cart/');
+}
