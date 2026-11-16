@@ -94,29 +94,40 @@ include '../includes/header.php';
                 </div>
             </div>
 
-            <!-- Quantity Selector -->
-            <div class="mb-4">
-                <h6 class="fw-bold mb-2">Quantity</h6>
-                <div class="input-group align-items-center" style="max-width: 140px;">
-                    <button class="btn btn-outline-dark rounded-start-pill px-3" type="button" id="btnMinus"
-                        onclick="updateQty(-1)">-</button>
-                    <input type="text" class="form-control text-center border-dark shadow-none fw-bold" id="qtyInput"
-                        value="1" readonly>
-                    <button class="btn btn-outline-dark rounded-end-pill px-3" type="button" id="btnPlus"
-                        onclick="updateQty(1)">+</button>
+            <form action="cart.php" method="POST">
+
+                <!-- Hidden inputs to send product details to the cart -->
+                <input type="hidden" name="product_id" value="101"> <!-- Will be dynamic from DB later -->
+                <input type="hidden" name="product_name" value="Elegant Black Kurti Set">
+                <input type="hidden" name="product_price" value="1999">
+                <input type="hidden" name="product_image"
+                    value="https://placehold.co/300x400/e6e0d4/333?text=Womenswear">
+
+                <!-- Quantity Selector -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-2">Quantity</h6>
+                    <div class="input-group align-items-center" style="max-width: 140px;">
+                        <button class="btn btn-outline-dark rounded-start-pill px-3" type="button"
+                            onclick="updateQty(-1)">-</button>
+                        <!-- Note the name="quantity" attribute added here -->
+                        <input type="text" class="form-control text-center border-dark shadow-none fw-bold"
+                            id="qtyInput" name="quantity" value="1" readonly>
+                        <button class="btn btn-outline-dark rounded-end-pill px-3" type="button"
+                            onclick="updateQty(1)">+</button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Action Buttons -->
-            <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
-                <button class="btn custom-btn text-white flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
-                    <i class="fa-solid fa-cart-plus me-2"></i>Add to Cart
-                </button>
-                <button class="btn btn-dark flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
-                    <i class="fa-solid fa-bolt me-2"></i>Buy Now
-                </button>
-            </div>
-
+                <!-- Action Buttons -->
+                <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
+                    <button type="submit" name="add_to_cart"
+                        class="btn custom-btn text-white flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
+                        <i class="fa-solid fa-cart-plus me-2"></i>Add to Cart
+                    </button>
+                    <button type="button" class="btn btn-dark flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
+                        <i class="fa-solid fa-bolt me-2"></i>Buy Now
+                    </button>
+                </div>
+            </form>
             <!-- Accordion Information -->
             <div class="accordion custom-accordion" id="productAccordion">
                 <!-- Detail Item -->
