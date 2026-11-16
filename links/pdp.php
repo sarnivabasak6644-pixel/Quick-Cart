@@ -1,3 +1,29 @@
+<?php
+include '../database/config.php';
+
+// Check if an ID exists in the URL and isn't blank
+if (isset($_GET['id']) && $_GET['id'] != '') {
+    $product_id = intval($_GET['id']);
+
+    $sql = "SELECT * FROM products WHERE id = $product_id";
+    $result = mysqli_query($conn, $sql);
+
+    // If the query fails due to a SQL error (like a wrong column name)
+    if (!$result) {
+        die("SQL Error: " . mysqli_error($conn));
+    }
+
+    if (mysqli_num_rows($result) > 0) {
+        $product = mysqli_fetch_assoc($result); 
+    } else {
+        // ERROR 1: ID is in the URL, but not in the database
+        die("STOP: The URL has ID #$product_id, but that product does not exist in your database table.");
+    }
+} else {
+    // ERROR 2: The PLP didn't send an ID at all
+    die("STOP: No product ID was sent in the URL. Your PLP link is missing the ID.");
+}
+?>
 <?php 
 include '../includes/header.php';
 ?>
@@ -18,30 +44,21 @@ include '../includes/header.php';
     <div class="row g-5">
         <!-- Left Column: Image Gallery -->
         <div class="col-lg-6">
-            <!-- Main Image -->
+
+            <!-- Main Image (Dynamic) -->
             <div class="custom-card p-3 rounded-4 mb-3 text-center position-relative">
                 <button
                     class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle shadow-sm p-2 heart-btn z-1">
                     <i class="fa-regular fa-heart"></i>
                 </button>
-                <img id="mainProductImage" src="https://placehold.co/600x750/e6e0d4/333?text=Main+Product+Image"
-                    class="img-fluid rounded w-100 object-fit-cover" alt="Product Name" style="max-height: 600px;">
+
+                <!-- This pulls the single image path from your database -->
+                <img src="<?php echo BASE_URL . htmlspecialchars($product['image_path']); ?>"
+                    class="img-fluid rounded w-100 object-fit-cover"
+                    alt="<?php echo htmlspecialchars($product['product_name']); ?>" style="max-height: 600px;">
             </div>
 
-            <!-- Thumbnails -->
-            <div class="d-flex gap-3 thumbnail-gallery overflow-x-auto pb-2">
-                <img src="https://placehold.co/600x750/e6e0d4/333?text=Main+Product+Image"
-                    class="img-fluid rounded custom-card thumb-img active-thumb" alt="Thumb 1"
-                    onclick="changeImage(this)">
-                <img src="https://placehold.co/600x750/e6e0d4/333?text=Angle+2"
-                    class="img-fluid rounded custom-card thumb-img" alt="Thumb 2" onclick="changeImage(this)">
-                <img src="https://placehold.co/600x750/e6e0d4/333?text=Angle+3"
-                    class="img-fluid rounded custom-card thumb-img" alt="Thumb 3" onclick="changeImage(this)">
-                <img src="https://placehold.co/600x750/e6e0d4/333?text=Close+up"
-                    class="img-fluid rounded custom-card thumb-img" alt="Thumb 4" onclick="changeImage(this)">
-            </div>
         </div>
-
         <!-- Right Column: Product Info -->
         <div class="col-lg-6">
             <span class="badge bg-maroon mb-2 px-3 py-2 rounded-pill">Bestseller</span>

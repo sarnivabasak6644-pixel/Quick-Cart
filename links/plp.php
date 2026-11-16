@@ -1,3 +1,16 @@
+<?
+include '../database/config.php';
+
+$category = isset($_GET['category']) ? $_GET['category'] : 'all';
+if($category ==='all' ){
+    $sql = "SELECT * FROM products";
+}
+else{
+    $safe_category = mysqli_real_escape_string($conn, $category);
+    $sql = "SELECT * FROM products WHERE category = '$safe_category'";
+}
+$result= mysqli_query($conn, $sql);
+?>
 <?php 
 include '../includes/header.php';
 ?>
@@ -142,65 +155,6 @@ include '../includes/header.php';
                     </div>
                 </a>
             </div>
-
-            <!-- Product 9: Beauty -->
-            <div class="col-6 col-lg-3">
-                <a href="pdp.php" class="text-decoration-none text-dark d-block h-100">
-                    <div class="product-card p-3 rounded-4 shadow-sm h-100 d-flex flex-column">
-                        <h5 class="text-center fw-bold mb-3">Beauty</h5>
-                        <div class="product-img-container mb-3">
-                            <img src="https://placehold.co/300x400/e6e0d4/333?text=Beauty" alt="Beauty">
-                        </div>
-                        <div class="mt-auto">
-                            <h5 class="fw-bold text-center mb-0 text-maroon">₹1,199</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 10: Snacks -->
-            <div class="col-6 col-lg-3">
-                <a href="pdp.php" class="text-decoration-none text-dark d-block h-100">
-                    <div class="product-card p-3 rounded-4 shadow-sm h-100 d-flex flex-column">
-                        <h5 class="text-center fw-bold mb-3">Snacks</h5>
-                        <div class="product-img-container mb-3">
-                            <img src="https://placehold.co/300x400/e6e0d4/333?text=Snacks" alt="Snacks">
-                        </div>
-                        <div class="mt-auto">
-                            <h5 class="fw-bold text-center mb-0 text-maroon">₹899</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Product 10: Snacks -->
-            <div class="col-6 col-lg-3">
-                <a href="pdp.php" class="text-decoration-none text-dark d-block h-100">
-                    <div class="product-card p-3 rounded-4 shadow-sm h-100 d-flex flex-column">
-                        <h5 class="text-center fw-bold mb-3">Snacks</h5>
-                        <div class="product-img-container mb-3">
-                            <img src="https://placehold.co/300x400/e6e0d4/333?text=Snacks" alt="Snacks">
-                        </div>
-                        <div class="mt-auto">
-                            <h5 class="fw-bold text-center mb-0 text-maroon">₹899</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Product 10: Snacks -->
-            <div class="col-6 col-lg-3">
-                <a href="pdp.php" class="text-decoration-none text-dark d-block h-100">
-                    <div class="product-card p-3 rounded-4 shadow-sm h-100 d-flex flex-column">
-                        <h5 class="text-center fw-bold mb-3">Snacks</h5>
-                        <div class="product-img-container mb-3">
-                            <img src="https://placehold.co/300x400/e6e0d4/333?text=Snacks" alt="Snacks">
-                        </div>
-                        <div class="mt-auto">
-                            <h5 class="fw-bold text-center mb-0 text-maroon">₹899</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
         </div>
     </div>
 

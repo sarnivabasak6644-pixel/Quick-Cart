@@ -142,15 +142,6 @@ include __DIR__ . '/includes/header.php';
       </div>
       <div class="col-6 col-md-3">
         <div class="blank-card shadow-sm">
-          <h3 class="h2 fw-bold text-center mb-2">T-shirts</h3>
-          <a href="links/plp.php?category=t-shirts" class="w-100">
-            <img class="recommended-product-image img-fluid shadow-sm" src="assets/images/t-shirt_m.png"
-              alt="Men's graphic T-shirt" />
-          </a>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="blank-card shadow-sm">
           <h3 class="h2 fw-bold text-center mb-2">Watches</h3>
           <a href="links/plp.php?category=watches" class="w-100">
             <img class="recommended-product-image img-fluid shadow-sm" src="assets/images/watches.png"
@@ -179,7 +170,7 @@ include __DIR__ . '/includes/header.php';
       <div class="col-6 col-md-3">
         <div class="blank-card shadow-sm">
           <h3 class="h2 fw-bold text-center mb-2">Mouse</h3>
-          <a href="links/plp.php?category=mouse" class="w-100">
+          <a href="links/plp.php?category=mouses" class="w-100">
             <img class="recommended-product-image img-fluid shadow-sm" src="assets/images/mouse.jpeg"
               alt="Computer mouse" />
           </a>

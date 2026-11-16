@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <?php
 include __DIR__ . '/../database/config.php';
 ?>
@@ -74,40 +77,59 @@ include __DIR__ . '/../database/config.php';
             </div>
           </li>
           <!-- User Account Item with Popup -->
-          <li class="nav-item position-relative">
-            <a class="nav-link text-white user-trigger" href="#" id="userPopupTrigger">
-              <i class="fa-solid fa-user"></i> You
-            </a>
-
-            <!-- User Popup Menu -->
-            <div class="user-popup shadow-lg d-none" id="userPopup">
-              <!-- Profile Header -->
-              <div class="profile-section bg-white p-3 rounded-4 mb-3 d-flex align-items-center gap-3">
-                <div class="avatar-circle">
-                  <i class="fa-solid fa-user text-maroon fs-1"></i>
-                </div>
+<li class="nav-item position-relative">
+    <a class="nav-link text-white user-trigger" href="#" id="userPopupTrigger">
+        <i class="fa-solid fa-user"></i> 
+        <!-- Display name if logged in, otherwise show 'You' -->
+        <?php echo isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'You'; ?>
+    </a>
+    
+    <div class="user-popup shadow-lg d-none" id="userPopup">
+        
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <!-- LOGGED IN VIEW -->
+            <div class="profile-section bg-white p-3 rounded-4 mb-3 d-flex align-items-center gap-3">
+                <div class="avatar-circle"><i class="fa-solid fa-user text-maroon fs-1"></i></div>
                 <div>
-                  <h5 class="fw-bold mb-1">User name</h5>
-                  <div class="small text-dark mb-1 d-flex align-items-center gap-1">
-                    <i class="fa-solid fa-location-dot"></i> address
-                  </div>
-                  <div class="small fw-semibold">
-                    Mobile: <span class="fw-normal">xxxxxxxx65</span>
-                  </div>
+                    <h5 class="fw-bold mb-1"><?php echo htmlspecialchars($_SESSION['user_name']); ?></h5>
+                    
+                    <div class="small text-muted mb-1">
+                        <i class="fa-solid fa-location-dot"></i> 
+                        <?php echo !empty($_SESSION['user_address']) ? htmlspecialchars($_SESSION['user_address']) : 'No address added'; ?>
+                    </div>
+                    
+                    <div class="small fw-semibold">Mobile: 
+                        <span class="fw-normal"><?php echo htmlspecialchars($_SESSION['user_phone']); ?></span>
+                    </div>
+                    
+                    <div class="small fw-semibold">E-mail: 
+                        <span class="fw-normal"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                    </div>
                 </div>
-              </div>
-
-              <!-- Links -->
-              <div class="popup-links mb-4 ms-2">
-                <a href="#" class="d-block text-dark text-decoration-none fs-5 mb-2">
-                  your cart <i class="fa-solid fa-cart-shopping text-maroon"></i>
-                </a>
-                <a href="#" class="d-block text-dark text-decoration-none fs-5">
-                  favourites <i class="fa-solid fa-heart text-maroon"></i>
-                </a>
-              </div>
             </div>
-          </li>
+            
+            <div class="popup-links mb-3 ms-2">
+                <a href="<?php echo BASE_URL; ?>links/cart.php" class="d-block text-dark text-decoration-none fs-5 mb-2">
+                    your cart <i class="fa-solid fa-cart-shopping text-maroon"></i>
+                </a>
+                <a href="#" class="d-block text-dark text-decoration-none fs-5 mb-3">
+                    favourites <i class="fa-solid fa-heart text-maroon"></i>
+                </a>
+                <a href="<?php echo BASE_URL; ?>links/logout.php" class="btn btn-sm btn-outline-danger rounded-pill px-3 shadow-none">Logout</a>
+            </div>
+
+        <?php else: ?>
+            <!-- GUEST / LOGGED OUT VIEW -->
+            <div class="profile-section bg-white p-4 rounded-4 text-center">
+                <h6 class="fw-bold mb-3">Welcome to Quick Cart!</h6>
+                <p class="small text-muted mb-3">Login to access your orders, cart, and profile.</p>
+                <a href="<?php echo BASE_URL; ?>links/login.php" class="btn custom-btn text-white w-100 rounded-pill mb-2">Login</a>
+                <a href="<?php echo BASE_URL; ?>links/signup.php" class="btn btn-outline-dark w-100 rounded-pill shadow-none">Sign Up</a>
+            </div>
+        <?php endif; ?>
+        
+    </div>
+</li>
           <li class="nav-item">
             <a class="nav-link text-white nav-pill" href="#">community</a>
           </li>
