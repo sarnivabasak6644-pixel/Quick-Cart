@@ -37,7 +37,9 @@ include '../includes/header.php';
             <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>links/plp.php"
                     class="text-dark text-decoration-none">Categories</a></li>
             <li class="breadcrumb-item"><a href="#" class="text-dark text-decoration-none">Womenswear</a></li>
-            <li class="breadcrumb-item active text-maroon fw-bold" aria-current="page">Elegant Black Kurti Set</li>
+            <li class="breadcrumb-item active text-maroon fw-bold" aria-current="page">
+                <?php echo htmlspecialchars($product['description']); ?>
+            </li>
         </ol>
     </nav>
 
@@ -55,14 +57,17 @@ include '../includes/header.php';
                 <!-- This pulls the single image path from your database -->
                 <img src="<?php echo BASE_URL . htmlspecialchars($product['image_path']); ?>"
                     class="img-fluid rounded w-100 object-fit-cover"
-                    alt="<?php echo htmlspecialchars($product['product_name']); ?>" style="max-height: 600px;">
+                    alt="<?php echo htmlspecialchars($product['description']); ?>"
+                    style="max-height: 600px; object-fit: contain; width: 100%;">
             </div>
 
         </div>
         <!-- Right Column: Product Info -->
         <div class="col-lg-6">
             <span class="badge bg-maroon mb-2 px-3 py-2 rounded-pill">Bestseller</span>
-            <h2 class="fw-bold mb-2">Elegant Black Kurti Set</h2>
+            <h2 class="fw-bold mb-2">
+                <?php echo htmlspecialchars($product['description']); ?>
+            </h2>
 
             <!-- Ratings -->
             <div class="d-flex align-items-center mb-3">
@@ -75,15 +80,9 @@ include '../includes/header.php';
 
             <!-- Price -->
             <h3 class="text-maroon fw-bold mb-3">
-                ₹1,999
-                <span class="text-muted fs-5 text-decoration-line-through fw-normal ms-2">₹2,999</span>
-                <span class="text-success fs-6 fw-bold ms-2">(33% OFF)</span>
+                ₹
+                <?php echo number_format($product['price']); ?>
             </h3>
-
-            <p class="text-muted mb-4 fs-6">
-                Experience ultimate comfort and elegance with this premium quality fabric. Perfect for both casual
-                outings and festive occasions. Features intricate pattern work and a breathable fit.
-            </p>
 
             <hr class="border-dark opacity-25 mb-4">
 
@@ -115,7 +114,7 @@ include '../includes/header.php';
 
                 <!-- Hidden inputs to send product details to the cart -->
                 <input type="hidden" name="product_id" value="101"> <!-- Will be dynamic from DB later -->
-                <input type="hidden" name="product_name" value="Elegant Black Kurti Set">
+                <input type="hidden" name="description" value="Elegant Black Kurti Set">
                 <input type="hidden" name="product_price" value="1999">
                 <input type="hidden" name="product_image"
                     value="https://placehold.co/300x400/e6e0d4/333?text=Womenswear">
@@ -133,16 +132,17 @@ include '../includes/header.php';
                             onclick="updateQty(1)">+</button>
                     </div>
                 </div>
-
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                 <!-- Action Buttons -->
                 <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
                     <button type="submit" name="add_to_cart"
                         class="btn custom-btn text-white flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
                         <i class="fa-solid fa-cart-plus me-2"></i>Add to Cart
                     </button>
-                    <button type="button" class="btn btn-dark flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm">
+                    <a href="checkout.php?product_id=<?php echo $product['id']; ?>"
+                        class="btn btn-dark flex-grow-1 rounded-pill py-3 fs-5 fw-semibold shadow-sm text-center text-decoration-none">
                         <i class="fa-solid fa-bolt me-2"></i>Buy Now
-                    </button>
+                    </a>
                 </div>
             </form>
             <!-- Accordion Information -->
@@ -159,10 +159,8 @@ include '../includes/header.php';
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#productAccordion">
                         <div class="accordion-body px-0 pt-2 pb-4 text-muted small">
                             <ul class="mb-0">
-                                <li>100% Premium Cotton</li>
-                                <li>Machine wash cold</li>
-                                <li>Regular fit</li>
-                                <li>Designed and manufactured in India</li>
+                                <li>14-days easy returns</li>
+                                <li>100% safe checkout</li>
                             </ul>
                         </div>
                     </div>
