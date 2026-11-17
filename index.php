@@ -13,7 +13,10 @@ include __DIR__ . '/includes/header.php';
 
         <div class="row align-items-center mt-3 position-relative">
           <div class="col-7">
-            <img src="assets/images/modern_bags.png" alt="Modern bags collection" class="img-fluid rounded shadow-sm" />
+            <a href="<?= BASE_URL ?>links/plp.php?category=bags" class="text-decoration-none w-100" style="color: black;">
+              <img src="assets/images/modern_bags.png" alt="Modern bags collection" class="img-fluid rounded shadow-sm" />
+            </a>
+            
           </div>
           <div class="col-5">
             <p class="small text-muted mb-0">
